@@ -6,10 +6,31 @@ Instruction
 Create a function named sumLargestNumbers that will receive an array of numbers and return the sum of the two largest numbers in that array.
 */
 
-const sumLargestNumbers = function (data) {
   // Put your solution here
-  return 11;
+
+const sumLargestNumbers = function (data) {
+
+//    alternative way of solution. just sort data by descending order.
+
+//   data.sort((a, b)=> b - a);
+//  return (data[0] + data[1]);
+
+let largest = -Infinity;
+let secondLargest = -Infinity;
+
+for (const num of data) {
+  if (num > largest) {
+    secondLargest = largest;
+    largest = num;
+  } else if (num > secondLargest) {
+    secondLargest = num;
+  }
+}
+
+  return largest + secondLargest;
 };
+ 
+
 
 console.log(sumLargestNumbers([1, 10])); // 11
 console.log(sumLargestNumbers([1, 2, 3])); // 5
