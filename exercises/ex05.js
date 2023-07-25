@@ -19,7 +19,19 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function (text) {
+
   // Put your solution here
+  trimmedText = text.trim().split(''); //trim the whitespaces from beginning and end and split the string so make it array of chars
+  console.log(trimmedText);
+  let urlPath = "";
+  trimmedText.forEach(word => {
+    if (word !=" "){
+      urlPath += word;
+    } else if (word == " "){
+      urlPath += "%20";
+    }   
+  });
+  return urlPath;
 };
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
